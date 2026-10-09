@@ -1,0 +1,11 @@
+name: contamination
+version: "0.1.0"
+description: "Une session qui a lu du contenu externe devient contaminée jusqu'à /new : chaque action à effet s'arrête avec une explication en français (LLM dédié qui ne voit jamais le contenu lu), les lectures passent, les cas flagrants sont bloqués. Session propre : comportement inchangé."
+author: "leflakk"
+provides_hooks:
+  - pre_llm_call
+  - pre_tool_call
+  - post_tool_call
+  - post_approval_response
+  - subagent_start
+  - on_session_reset
