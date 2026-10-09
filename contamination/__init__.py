@@ -69,8 +69,8 @@ def doctor_report(call_explainer: bool = True) -> str:
     for name, ok, detail in hermes_compat.doctor():
         lines.append(f"  [{'ok' if ok else '!!'}] {name} : {detail}")
     human, why, _manual = hermes_compat.gate_status()
-    lines.append(f"  [{'ok' if human else '..'}] demande humaine possible dans CE processus : "
-                 f"{'oui' if human else 'non (' + why + ')'}")
+    lines.append(f"  [..] demande humaine possible dans ce processus : {'oui' if human else 'non (' + why + ')'} "
+                 "— normal ici : c'est la passerelle ou la conversation CLI qui pose les questions")
     cfg = ExplainerConfig.from_env()
     lines.append(f"Explicateur : url={cfg.url or '(absente)'} modèle={cfg.model or '(absent)'} "
                  f"clé={'oui' if cfg.key else 'non'} délai={cfg.timeout:g}s json={cfg.json_mode}")

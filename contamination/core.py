@@ -22,10 +22,10 @@ from collections import OrderedDict
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from . import hermes_compat as compat
-from .classify import EFFECT, INTERNAL, READ, Settings, classify_call, source_of, strings_in
+from .classify import INTERNAL, READ, Settings, classify_call, source_of, strings_in
 from .explainer import ExplainerConfig, build_user_prompt, explain
 from .facts import ExplainerTarget, SecretBook, extract, max_risk, _SENSITIVE_PATH
-from .render import (RISK_LABEL, action_summary, approval_message, auto_block_message, clean,
+from .render import (action_summary, approval_message, auto_block_message, clean,
                      fallback_block_message, hhmm, source_line)
 from .state import SessionState, Stop, Store, hermes_db_parent
 from .urls import extract_domains, extract_urls, origin_url

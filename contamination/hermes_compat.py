@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, List, Tuple
 
 PLUGIN_NAME = "contamination"
 _TRUTHY = {"1", "true", "yes", "on"}
@@ -156,7 +156,9 @@ def doctor() -> List[Tuple[str, bool, str]]:
                  "get_current_session_key"]
         missing = [n for n in names if not hasattr(ac, n)]
         rows.append(("contexte d'approbation", not missing, "manquants : " + ", ".join(missing) if missing else "ok"))
-        rows.append(("mode d'approbation", True, str(ac._get_approval_mode())))
+        mode = str(ac._get_approval_mode())
+        rows.append(("mode d'approbation", mode != "off",
+                     mode if mode != "off" else "off : chaque arrêt deviendra un blocage + /contamination"))
     except Exception as exc:
         rows.append(("contexte d'approbation", False, type(exc).__name__))
     try:
