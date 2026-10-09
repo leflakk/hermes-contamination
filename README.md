@@ -31,7 +31,7 @@ Rien n'y est cliquable : URL, domaines et IP sont défangés (`hxxps://`, `[.]`)
 
 1. Cloner le dépôt, puis copier le plugin dans le profil et l'activer :
    ```bash
-   git clone git@github.com:leflakk/hermes-contamination.git ~/hermes-contamination
+   git clone https://github.com/leflakk/hermes-contamination.git ~/hermes-contamination
    ~/hermes-contamination/scripts/install.sh
    ```
    Pour un autre profil : `HERMES_HOME=~/.hermes/profiles/<nom> ~/hermes-contamination/scripts/install.sh`.
